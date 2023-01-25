@@ -34,6 +34,10 @@ If you want more metrics exposed, file an issue and describe your exact needs.
 
 Detailed testing has not been done to establish the limits of compatibility. No exotic APIs are used, so incompatibilities are not expected.
 
+*** This fork uses the latest (at the time of commit) of the dotnet.docker package and resolves the following error, when used with Docker version 20.10.21, build baeda1f
+
+`Error   2023-01-25 17:16:35Z [] Docker API responded with status code=BadRequest, response=400 Bad Request (DockerApiException)` 
+
 The executable itself is capable of reporting metrics from Windows installations of Docker (including Windows container resource usage) but there is not yet any Windows version of the image distributed. If you are interested in Windows support, please file an issue where you describe your exact scenario and the versions of Windows that are of interest to you.
 
 # Authentication
@@ -52,7 +56,7 @@ If you enable the experimental features mode in Docker, [it does expose some ver
 
 To upgrade to a new version:
 
-1. Execute `docekr rm --force docker_exporter` to stop the existing instance.
+1. Execute `docker rm --force docker_exporter` to stop the existing instance.
 1. Execute `docker pull prometheusnet/docker_exporter` to download the new version.
 1. Execute the `docker run` command from the quick start to start the new version.
 
